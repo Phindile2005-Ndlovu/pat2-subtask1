@@ -1,12 +1,12 @@
-#include <iostream>
-int main() {
-    std::cout << "Morse Code Translator" << std::endl;
-    return 0;
-}
+// Morse Code Translator
+// Author: Phindile Ndlovu
+// Converts uppercase letters and digits into Morse code
+
 #include <iostream>
 #include <map>
 #include <cctype>
 
+// Morse code dictionary
 std::map<char, std::string> morseCode = {
     {'A', ".-"}, {'B', "-..."}, {'C', "-.-."},
     {'D', "-.."}, {'E', "."}, {'F', "..-."},
@@ -24,38 +24,39 @@ std::map<char, std::string> morseCode = {
 };
 
 int main() {
-int main() {
     std::cout << "Morse Code Translator\n";
+
+    // Get user input
     std::string message;
     std::cout << "Enter a message (A-Z and 0-9 only): ";
     std::getline(std::cin, message);
-    return 0;
-}
 
-    std::cout << "Morse Code Translator\n";
-    return 0;
-}
-
-for (char c : message) {
-    if (c == ' ') {
-        std::cout << "\n";  // Newline for space between words
-        continue;
-    }
-    c = toupper(c);
-    if (morseCode.find(c) != morseCode.end()) {
-        std::cout << c << ": " << morseCode[c] << "\n";
-    }
-}
-std::cout << "\nFull Morse Code Message:\n";
-for (size_t i = 0; i < message.size(); i++) {
-    char c = toupper(message[i]);
-    if (c == ' ') {
-        std::cout << "       ";  // 7 spaces between words for clarity
-    } else if (morseCode.find(c) != morseCode.end()) {
-        std::cout << morseCode[c];
-        if (i != message.size() - 1) {
-            std::cout << "   ";  // 3 spaces between letters
+    // Output Morse code line by line
+    for (char c : message) {
+        if (c == ' ') {
+            std::cout << "\n";  // New line between words
+            continue;
+        }
+        c = toupper(c);
+        if (morseCode.find(c) != morseCode.end()) {
+            std::cout << c << ": " << morseCode[c] << "\n";
         }
     }
+
+    // Output full Morse code message
+    std::cout << "\nFull Morse Code Message:\n";
+    for (size_t i = 0; i < message.size(); i++) {
+        char c = toupper(message[i]);
+        if (c == ' ') {
+            std::cout << "       ";  // 7 spaces between words
+        } else if (morseCode.find(c) != morseCode.end()) {
+            std::cout << morseCode[c];
+            if (i != message.size() - 1) {
+                std::cout << "   ";  // 3 spaces between letters
+            }
+        }
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
-std::cout << std::endl;
