@@ -46,3 +46,16 @@ for (char c : message) {
         std::cout << c << ": " << morseCode[c] << "\n";
     }
 }
+std::cout << "\nFull Morse Code Message:\n";
+for (size_t i = 0; i < message.size(); i++) {
+    char c = toupper(message[i]);
+    if (c == ' ') {
+        std::cout << "       ";  // 7 spaces between words for clarity
+    } else if (morseCode.find(c) != morseCode.end()) {
+        std::cout << morseCode[c];
+        if (i != message.size() - 1) {
+            std::cout << "   ";  // 3 spaces between letters
+        }
+    }
+}
+std::cout << std::endl;
