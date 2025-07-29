@@ -36,3 +36,13 @@ int main() {
     return 0;
 }
 
+for (char c : message) {
+    if (c == ' ') {
+        std::cout << "\n";  // Newline for space between words
+        continue;
+    }
+    c = toupper(c);
+    if (morseCode.find(c) != morseCode.end()) {
+        std::cout << c << ": " << morseCode[c] << "\n";
+    }
+}
