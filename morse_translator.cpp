@@ -24,6 +24,14 @@ std::map<char, std::string> morseCode = {
 };
 
 int main() {
+int main() {
+    std::cout << "Morse Code Translator\n";
+    std::string message;
+    std::cout << "Enter a message (A-Z and 0-9 only): ";
+    std::getline(std::cin, message);
+    return 0;
+}
+
     std::cout << "Morse Code Translator\n";
     return 0;
 }
